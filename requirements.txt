@@ -14,4 +14,17 @@ scikit-learn
 tqdm
 typer
 datargs
+openai 
+sqlalchemy 
+llama-index 
+psycopg2
+transformers
+llama-index-llms-gemini
+llama-index-llms-ollama
+llama-index-embeddings-openvino
+llama-index-embeddings-huggingface-optimum
+llama-index-llms-huggingface
+torch
+torchvision
+torchaudio
 -e .
