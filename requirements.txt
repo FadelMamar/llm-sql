@@ -24,6 +24,7 @@ llama-index-llms-ollama
 llama-index-embeddings-openvino
 llama-index-embeddings-huggingface-optimum
 llama-index-llms-huggingface
+llama-index-llms-deepseek
 torch
 torchvision
 torchaudio

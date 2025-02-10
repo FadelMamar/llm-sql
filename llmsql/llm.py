@@ -1,5 +1,6 @@
 from llama_index.llms.ollama import Ollama
 from llama_index.llms.gemini import Gemini
+from llama_index.llms.deepseek import DeepSeek
 import os
 import subprocess
 from dataclasses import dataclass
@@ -44,6 +45,10 @@ class ModelManager:
                       max_tokens=num_output,
                       temperature=temperature,
                       )
+    
+    @staticmethod
+    def load_deepseek_llm(llm_name:str='deepseek-chat'):
+        return DeepSeek(model=llm_name, api_key=os.environ["DEEPSEEK_API_KEY"])
     
     @staticmethod
     def load_embed_model(model_id_or_path: str,

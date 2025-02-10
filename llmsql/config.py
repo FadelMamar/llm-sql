@@ -28,9 +28,9 @@ class Arguments:
     port:str="5432"
 
     # llm
-    llm_type:str='gemini' # "gemini", "ollama", "deepseek-r1:7b"
+    llm_type:str='gemini' # "gemini", "ollama" "deepseek"
     tokenizer_name:str='Qwen/Qwen2.5-7B-Instruct' # deepseek-ai/DeepSeek-R1 HuggingFaceTB/SmolLM-1.7B-Instruct
-    llm_name:str='models/gemini-1.5-flash' # "models/gemini-1.5-flash" "qwen2.5:7b" "smollm:latest" "Qwen/Qwen2.5-7B-Instruct"
+    llm_name:str='models/gemini-1.5-flash' # "models/gemini-1.5-flash" "deepseek-r1:7b" "qwen2.5:7b" "smollm:latest" "Qwen/Qwen2.5-7B-Instruct"
     embed_model:str=r"D:\llm-sql\models\kalm_ov" # "D:\llm-sql\models\HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1" or "D:\llm-sql\models\kalm_ov"
     context_window:int=8000
     num_output:int=256
@@ -57,6 +57,9 @@ class SettingsManager:
                                                         system_prompt=args.sys_prompt,
                                                         num_output=args.num_output,
                                                         temperature=args.temperature)
+        elif args.llm_type == 'deepseek':
+            Settings.llm = ModelManager.load_deepseek_llm(llm_name=args.llm_name)
+
         else:
             raise NotImplementedError
         Settings.tokenizer = ModelManager.load_tokenizer(huggingface_name=args.tokenizer_name,
